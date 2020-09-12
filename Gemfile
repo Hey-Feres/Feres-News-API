@@ -34,12 +34,26 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+    # The Listen gem listens to file modifications and notifies you about the changes. Works everywhere!
+    gem 'listen', '>= 3.0.5', '< 3.2'
+    # Spring speeds up development by keeping your application running in the background.
+    gem 'spring'
+    # Makes spring watch files using the listen gem
+    gem 'spring-watcher-listen', '~> 2.0.0'
+    # Capistrano is a utility and framework for executing commands in parallel on multiple remote machines, via SSH.
+    gem 'capistrano', '~> 3.10'
+    # RVM integration for Capistrano
+    gem 'capistrano-rvm'
+    # Bundler support for Capistrano 3.x
+    gem 'capistrano-bundler', '~> 1.5'
+    # Rails specific Capistrano tasks
+    gem 'capistrano-rails', '~> 1.4'
 end
 
+group :production do
+    # A simple, fast Mysql library for Ruby, binding to libmysql
+    gem 'mysql2'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
