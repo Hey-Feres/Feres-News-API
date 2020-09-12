@@ -48,11 +48,15 @@ group :development do
     gem 'capistrano-bundler', '~> 1.5'
     # Rails specific Capistrano tasks
     gem 'capistrano-rails', '~> 1.4'
+    # Unicorn specific Capistrano tasks
+    gem 'capistrano3-unicorn'
 end
 
 group :production do
     # A simple, fast Mysql library for Ruby, binding to libmysql
     gem 'mysql2'
+    # Unicorn is an HTTP server for Rack applications designed to only serve fast clients on low-latency, high-bandwidth connections and take advantage of features in Unix/Unix-like kernels.
+    gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
