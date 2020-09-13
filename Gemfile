@@ -25,8 +25,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 # Active Model Serializer Implementation and Rails Hooks
 gem 'active_model_serializers'
+# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
+gem 'nokogiri'
 # Makes http fun again! Ain't no party like a httparty, because a httparty don't stop
 gem 'httparty'
+# Byebug is a Ruby debugger
+gem 'byebug'
+# Pry is a runtime developer console and IRB alternative with powerful introspection capabilities
+gem 'pry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,23 +1,25 @@
 module Api
 
-    GNEWS_API_BASE_URL = "https://gnews.io/api/v3"
-    GNEWS_API_TOKEN = Rails.application.credentials.gnews_api_token
+    NewsApiToken = Rails.application.credentials.news_api_token
 
     class NewsController < ActionController::API
 
-        def today
-            news = HTTParty.get("#{GNEWS_API_BASE_URL}/top-news?lang=pt-BR&country=br&token=#{GNEWS_API_TOKEN}")
-            render json: news
-        end
+        include NewsService
 
-        def topic
-            news = HTTParty.get("#{GNEWS_API_BASE_URL}/topics/#{params[:topic]}?lang=pt-BR&country=br&token=#{GNEWS_API_TOKEN}")
-            render json: news
+        def today
+            news = NewsService::News.new
+            render json: news.today
         end
 
         def search
-            news = HTTParty.get("#{GNEWS_API_BASE_URL}/search?q=#{params[:query]}&lang=pt-BR&country=br&token=#{GNEWS_API_TOKEN}")
-            render json: news
+            url = "https://newsapi.org/v2/everything?language=pt&q=#{params[:query]}&apiKey=#{NewsApiToken}"
+            news = NewsService::News.new(url)
+            render json: news.get
+        end
+
+        def sources
+            news = NewsService::News.new
+            render json: news.sources
         end
 
     end
