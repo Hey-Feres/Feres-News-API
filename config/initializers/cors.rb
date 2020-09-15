@@ -18,23 +18,18 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
         resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
     end
 
-    allow do
-        origins "https://feres-news.web.app/"
-        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
-    end
-
-    allow do
-        origins "https://feres-news.firebaseapp.com/"
-        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
-    end
-
-    allow do
-        origins "https://feres-news.com"
-        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
-    end
+    # allow do
+    #     origins "https://feres-news.com"
+    #     resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+    # end
 
     allow do
         origins "http://feres-news.com"
+        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+    end
+
+    allow do
+        origins "http://www.feres-news.com"
         resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
     end
 end
